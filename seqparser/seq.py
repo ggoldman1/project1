@@ -11,6 +11,8 @@ def transcribe(seq: str) -> str:
     if set(seq) >= dna:
         raise ValueError("Your sequence can only contain A, C, G, and T, but you included a sequence with"
                          f" {set(seq) - dna}.")
+    if len(seq) == 0:
+        raise ValueError("You passed in an empty sequence.")
     seq = seq.upper()
     
     return seq.replace('T', 'U')
