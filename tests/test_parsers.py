@@ -28,7 +28,7 @@ def test_FastaParser():
     your FastaParser class and assert that it properly
     reads in the example Fasta File.
     """
-    fa = FastaParser("../data/test.fa")
+    fa = FastaParser("./data/test.fa")
 
     records = [r for r in fa]
     assert len(records) == 100, "did not read in correct number of records" # 100 records in total
@@ -44,10 +44,10 @@ def test_FastqParser():
     your FastqParser class and assert that it properly
     reads in the example Fastq File.
     """
-    fq = FastqParser("../data/test.fq")
+    fq = FastqParser("./data/test.fq")
 
     records = [r for r in fq]
     assert len(records) == 100, "did not read in correct number of records" # 100 records in total
 
     for r in records:
-        assert len(r) == 3, "the record is the wrong length" # each record is header, sequence, and quality 
+        assert len(r) == 3, "the record is the wrong length" # each record is header, sequence, and quality
