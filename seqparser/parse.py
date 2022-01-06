@@ -96,7 +96,10 @@ class Parser:
             # and implement an exception for the error you will find in
             # the error message you receive. 
             while True:
-                rec = self.get_record(f_obj)
+                try:
+                    rec = self.get_record(f_obj)
+                except ValueError:
+                    break
                 yield rec
 
     def _get_record(self, f_obj: io.TextIOWrapper) -> Union[Tuple[str, str], Tuple[str, str, str]]:
@@ -117,7 +120,11 @@ class FastaParser(Parser):
         """
         returns the next fasta record
         """
-        
+        rec = f_obj.readline(), f_obj.readline()
+        if rec == ('', ''):
+            raise ValueError("Reached end of file")
+        return rec
+
 
 class FastqParser(Parser):
     """
@@ -127,4 +134,14 @@ class FastqParser(Parser):
         """
         returns the next fastq record
         """
+        rec = f_obj.readline(), f_obj.readline(), f_obj.readline(), f_obj.readline()
+        if rec == ('', '', '', ''):
+            raise ValueError("Reached end of file")
+        # not returning the '+'?
+        return rec[0], rec[1], rec[3]
 
+"""
+Questions:
+    - Iterating over fa/fq object just prints null strings, I included my own error in _get_record. 
+    - Fastq record is four lines, not three?
+"""
