@@ -117,7 +117,7 @@ class FastaParser(Parser):
         """
         returns the next fasta record
         """
-
+        
 
 class FastqParser(Parser):
     """
