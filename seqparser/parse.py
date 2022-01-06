@@ -140,8 +140,10 @@ class FastqParser(Parser):
         # not returning the '+'?
         return rec[0], rec[1], rec[3]
 
+
 """
 Questions:
-    - Iterating over fa/fq object just prints null strings, I included my own error in _get_record. 
-    - Fastq record is four lines, not three?
+    - Iterating over fa/fq object just prints null strings (ie doesn't throw error) once eof, I included my own error 
+      in _get_record. 
+    - Fastq record is four lines, not three? Now dropping the '+'. 
 """
