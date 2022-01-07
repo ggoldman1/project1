@@ -28,6 +28,7 @@ def test_transcribe():
     """
     assert transcribe("ACTG") == "ACUG"
     assert transcribe("TTTTTTT") == "UUUUUUU"
+    assert transcribe("gtca") == "GUCA"
 
     with pytest.raises(ValueError):
         transcribe("ABCD")
@@ -40,6 +41,8 @@ def test_reverse_transcribe():
     reverse transcribe function here.
     """
     assert reverse_transcribe("ACTG") == "GUCA"
+    assert reverse_transcribe("AAAAAA") == "AAAAAA"
+    assert reverse_transcribe("gtca") == "ACUG"
     
     with pytest.raises(ValueError):
         transcribe("ABCD")
