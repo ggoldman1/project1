@@ -1,3 +1,5 @@
+![Tests](https://github.com/ggoldman1/project1/actions/workflows/actions.yml/badge.svg)
+
 # Project 1
 Building a FAST[AQ] Parser + Building a DNA -> RNA Transcriber
 
