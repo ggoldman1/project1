@@ -3,8 +3,8 @@
 
 def transcribe(seq: str) -> str:
     """
-    transcribes DNA to RNA by replacing
-    all `T` to `U`
+    transcribes DNA to RNA by generating
+    the complement sequence with T -> U replacement
     """
     # simple checks -- ennsure nonzero sequence, ensure only A, C, G, T in seq, capitalize seq.
     dna = {'A', 'C', 'G', 'T'}
@@ -23,7 +23,7 @@ def transcribe(seq: str) -> str:
 
 def reverse_transcribe(seq: str) -> str:
     """
-    transcribes DNA to RNA by replacing
-    all `T` to `U` then reverses the sequence
+    transcribes DNA to RNA then reverses
+    the strand
     """
     return transcribe(seq)[::-1]
